@@ -1,4 +1,23 @@
 <?php
+
+// Definisco la classe Movie
+class Movies
+{
+    public $title;
+    public $year;
+    public $genre;
+    public $duration;
+
+    function __construct($_title, $_year, $_genre, $_duration)
+    {
+        $this->title = $_title;
+        $this->year = $_year;
+        $this->genre = $_genre;
+        $this->duration = $_duration;
+    }
+};
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
