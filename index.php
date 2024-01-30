@@ -29,15 +29,14 @@ class Movies
 };
 
 // Aggiungo le istanze alla classe Movie
-$movie_1 = new Movies('L ultima volta che siamo stati bambini', 'Commedia', '1h 30min');
-$movie_2 = new Movies('Borg McEnroe', 'Sportivo', '1h 48min');
-$movie_3 = new Movies('Senza Freni', 'Azione', '1h 31min');
+$movie_1 = new Movies('L ultima volta che siamo stati bambini', ['Commedia'], '1h 30min');
+$movie_2 = new Movies('Borg McEnroe', ['Sportivo', 'Thriller'], '1h 48min');
+$movie_3 = new Movies('Senza Freni', ['Azione', 'Horror'], '1h 31min');
 
 // Inserisco la data applicando la funzione
 $movie_1->setFilmYear(2023);
 $movie_1->setFilmYear(2017);
 $movie_1->setFilmYear(2013);
-
 
 // Inserisco le istanze in un array per ciclarle
 $moviesArray = [
@@ -65,7 +64,13 @@ $moviesArray = [
                     <div class="col-4">
                         <div class="text-center">
                             <h1><?php echo $movie->title ?></h1>
-                            <h3><?php echo "Genere:" . $movie->genre ?></h3>
+
+                            <!-- Ciclo i generi dell'array -->
+                            <h3><?php foreach ($movie->genre as $genres) { ?>
+                                    <?php echo $genres ?>
+                                <?php  } ?>
+                            </h3>
+
                             <h5><?php echo  $movie->year . " Durata del film:" . $movie->duration ?></h5>
                         </div>
                     </div>
